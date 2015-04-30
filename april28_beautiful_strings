@@ -1,0 +1,58 @@
+import sys
+import re
+from collections import Counter
+
+test_cases = open(sys.argv[1], 'r')
+for test in test_cases:
+	test = test.lower()
+	test = re.sub("[^a-z]"."", test)
+	coutnts = [_[1] for_in Counter(test).most_common()]
+	scores = list(range(27-len),27))[::-1]
+	print (sum(c*s for c,s in zip(counts, scores)))
+
+test_cases.
+
+def beautiful_string(filename):
+   with open(filename, 'r') as f:
+       for line in f:
+           line = line.lower()
+           tally = {}
+           for letter in "abcdefghijklmnopqrstuvwxyz":
+               tally[letter] = line.count(letter)
+           tally_list = tally.items()
+           sorted_tally = sorted(tally_list,key=lambda x: x[1])
+           sum = 0
+           letter_value = 26
+           nmax = len(sorted_tally)
+           for (letter,count) in reversed(sorted_tally):
+               sum = sum + letter_value*count
+               letter_value -= 1
+           print sum
+
+           from collections import Counter
+import numpy as numpy
+import re
+
+
+
+
+def get_beauty(mystr):
+    mystr=mystr.lower()
+    mystr = re.sub("[^A-Za-z]",'',mystr)
+    print mystr
+    labels, vals = zip(*Counter(list(mystr)).items())
+
+    vals = np.sort(list(vals))
+    vals[:] = np.array(vals[::-1])
+    print vals
+
+
+    xx = np.array(range(26,26-len(vals),-1))
+
+    beauty = (vals*xx).sum()
+    return beauty
+
+
+
+s = "Good luck in the Facebook Hacker Cup this year!"
+print get_beauty(s)
